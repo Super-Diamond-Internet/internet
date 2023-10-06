@@ -10,9 +10,11 @@
         var internetConnect = document.createElement("iframe")
         internetConnect.src = "internets/" + name + ".html"
         document.body.appendChild(internetConnect)
-        var password = internetConnect.contentWindow.parent
+        var password = internetConnect.contentWindow.eval("password")
+        var ip = internetConnect.contentWindow.eval("ip")
         if(password == enteredPassword) {
-         parent.eval("localStorage.setItem('internet', 'internet')")
+         parent.eval("localStorage.setItem('internet', " + name + ")")
+         parent.eval("localStorage.setItem('ip', " + ip + ")")
          alert("Connection Succesfull")
         }
         else {
