@@ -1,0 +1,23 @@
+<script>
+ 
+<script>
+    window.addEventListener("message", function (e) {
+        if (parent.location.href!== "https://alexidians.github.io/Super-Diamond-OS/Super Diamond OS_files/internetMenu.html") {
+            return
+        }
+        var name = prompt("Enter Internet Name")
+        var enteredPassword = prompt("Enter Internet Password")
+        var internetConnect = document.createElement("iframe")
+        internetConnect.src = "internets/" + name + ".html"
+        document.body.appendChild(internetConnect)
+        var password = internetConnect.contentWindow.parent
+        if(password == enteredPassword) {
+         parent.eval("localStorage.setItem('internet', 'internet')")
+         alert("Connection Succesfull")
+        }
+        else {
+         alert("Incorrect Password. Did not connect to internet")
+        }
+    })
+</script>
+</script>
