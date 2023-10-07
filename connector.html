@@ -1,6 +1,6 @@
 <script>
     window.addEventListener("message", function (e) {
-        if (parent.location.href!== "https://alexidians.github.io/Super-Diamond-OS/Super Diamond OS_files/internetMenu.html") {
+        if (e.origin !== "https://alexidians.github.io") {
             return
         }
         var name = prompt("Enter Internet Name")
