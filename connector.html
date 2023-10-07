@@ -8,15 +8,15 @@
         var internetConnect = document.createElement("iframe")
         internetConnect.src = "internets/" + name + ".html"
         document.body.appendChild(internetConnect)
-        var password = internetConnect.contentWindow.eval("password")
-        var ip = internetConnect.contentWindow.eval("ip")
+        var password = internetConnect.contentWindow.password;
+        var ip = internetConnect.contentWindow.ip;
         if(password == enteredPassword) {
          parent.eval("localStorage.setItem('internet', " + name + ")")
          parent.eval("localStorage.setItem('ip', " + ip + ")")
          alert("Connection Succesfull")
         }
         else {
-         alert("Incorrect Password. Did not connect to internet")
+         alert("Incorrect Password. Did not connect to internet. but still using the same internet")
         }
     })
 </script>
