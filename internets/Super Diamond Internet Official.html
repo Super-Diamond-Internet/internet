@@ -2,15 +2,11 @@
 <head></head>
 <body>
 <script>
-if(parent.contentWindow.hostname == "super-diamond-internet.github.io") {
 const data = {
  password: "aiwauwigeauygewau",
  ip: "948.473.283.382"
 }
 parent.postMessage(JSON.stringify(data), "*")
-}
-else {
- console.error("Denied Internet Data Access cause incorrect provider")
 }
 </script>
 </body>
