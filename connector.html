@@ -1,15 +1,13 @@
 <script>
+    var password = "getting..."
+    var ip = "getting..."
     window.addEventListener("message", function (e) {
-        if (e.origin !== "https://alexidians.github.io") {
-            return
-        }
+       if (e.origin == "https://alexidians.github.io") {
         var name = prompt("Enter Internet Name")
         var enteredPassword = prompt("Enter Internet Password")
         var internetConnect = document.createElement("iframe")
         internetConnect.src = "internets/" + name + ".html"
         document.body.appendChild(internetConnect)
-        var password = internetConnect.contentWindow.password;
-        var ip = internetConnect.contentWindow.ip;
         if(password == enteredPassword) {
          parent.eval("localStorage.setItem('internet', " + name + ")")
          parent.eval("localStorage.setItem('ip', " + ip + ")")
@@ -18,5 +16,12 @@
         else {
          alert("Incorrect Password. Did not connect to internet. but still using the same internet")
         }
+       }
+       if(e.origin == "https://super-diamond-internet.github.io") {
+         const data = JSON.parse(e.data)
+         password = data.password
+         ip = data.ip
+        }
+       }
     })
 </script>
