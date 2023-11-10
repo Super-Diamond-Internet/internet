@@ -1,3 +1,6 @@
+<html>
+<head></head>
+<body>
 <script>
     var password = "getting..."
     var ip = "getting..."
@@ -9,18 +12,23 @@
         internetConnect.src = "internets/" + name + ".html"
         document.body.appendChild(internetConnect)
         if(password == enteredPassword) {
-         parent.eval("localStorage.setItem('internet', " + name + ")")
-         parent.eval("localStorage.setItem('ip', " + ip + ")")
          alert("Connection Succesfull")
+         const InternetObject = {
+          ip: ip,
+          name: name,
+          state: true
+         }
+         return InternetObject
         }
         else {
          alert("Incorrect Password. Did not connect to internet. but still using the same internet")
+         const InternetObject = {
+          state: false
+         }
+         return InternetObject
         }
        }
-       if(e.origin == "https://super-diamond-internet.github.io") {
-         const data = JSON.parse(e.data)
-         password = data.password
-         ip = data.ip
-        }
     })
 </script>
+</body>
+</html>
