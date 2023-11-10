@@ -6,13 +6,11 @@
         if (e.origin !== "https://alexidians.github.io") {
             return
         }
-         
         const internet = {
          password: "agogo",
          ip: "812.932.192.333"
         }
-        
-        return internet;
+        parent.postMessage(JSON.stringify(internet), "*")
     })
 </script>
 </body>
