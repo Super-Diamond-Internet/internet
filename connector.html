@@ -4,28 +4,34 @@
 <script>
     var password = "getting..."
     var ip = "getting..."
+    var name "none"
+    var enteredPassword = "none"
+    var internetConnect = document.createElement("iframe")
+    document.body.appendChild(internetConnect)
     window.addEventListener("message", function (e) {
        if (e.origin == "https://alexidians.github.io") {
-        var name = prompt("Enter Internet Name")
-        var enteredPassword = prompt("Enter Internet Password")
-        var internetConnect = document.createElement("iframe")
+        name = prompt("Enter Internet Name")
+        enteredPassword = prompt("Enter Internet Password")
         internetConnect.src = "internets/" + name + ".html"
-        document.body.appendChild(internetConnect)
+        internetConnect.contentWindow.postMessage("Super Diamond Internet Request", "*")
+       }
+       if (e.origin == "https://super-diamond-internet.github.io") {
+        const internet = JSON.parse(e.data)
         if(password == enteredPassword) {
-         alert("Connection Succesfull")
          const InternetObject = {
           ip: ip,
           name: name,
           state: true
          }
          parent.postMessage(JSON.stringify(InternetObject), "*")
+         alert("Connection Succesfull")
         }
         else {
-         alert("Incorrect Password. Did not connect to internet. but still using the same internet")
          const InternetObject = {
           state: false
          }
          parent.postMessage(JSON.stringify(InternetObject), "*")
+         alert("Incorrect Password. Did not connect to internet. but still using the same internet")
         }
        }
     })
