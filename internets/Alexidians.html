@@ -2,8 +2,18 @@
 <head></head>
 <body>
 <script>
-parent.eval("var password = 'agogo'")
-parent.eval("var ip = '812.932.192.333'")
+    window.addEventListener("message", function (e) {
+        if (e.origin !== "http://alexidians.github.io") {
+            return
+        }
+         
+        const internet = {
+         password: "agogo",
+         ip: "812.932.192.333"
+        }
+        
+        return internet;
+    })
 </script>
 </body>
 </html>
