@@ -18,14 +18,14 @@
           name: name,
           state: true
          }
-         return InternetObject
+         parent.postMessage(JSON.stringify(InternetObject), "*")
         }
         else {
          alert("Incorrect Password. Did not connect to internet. but still using the same internet")
          const InternetObject = {
           state: false
          }
-         return InternetObject
+         parent.postMessage(JSON.stringify(InternetObject), "*")
         }
        }
     })
